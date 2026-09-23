@@ -14,15 +14,15 @@ async def get_products():
     return data_response(data)
 
 
-@router.get("/products/{id}")
-async def get_product_by_id(id: int):
-    data = get_product_data_by_id(id)
-    return data_response(data)
-
-
 @router.get("/products/filter")
 async def get_products_by_filter(product_query: ProductQuery = Depends(ProductQuery)):
     data = get_product_data_by_filter(product_query)
+    return data_response(data)
+
+
+@router.get("/products/{id}")
+async def get_product_by_id(id: int):
+    data = get_product_data_by_id(id)
     return data_response(data)
 
 
